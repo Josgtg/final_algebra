@@ -1,4 +1,5 @@
 import math as m
+from classes import Comida
 
 def producto_interno(vec1: list[int], vec2: list[int]=None) -> float:
     # No hemos definido un producto interno todavía.
@@ -31,3 +32,7 @@ def resta(vec1: list[int], vec2: list[int]) -> list[int]:
 
 def distancia(vec1: list[int], vec2: list[int]) -> float:
     return norma(resta(vec2, vec1))
+
+
+def ordena_cercanos(objetivo: Comida, lista_comidas: list[Comida]) -> list[Comida]:
+    return [i for i in sorted(lista_comidas, key=lambda c: distancia(objetivo, c.vector))]
