@@ -34,8 +34,9 @@ class Ventana(CTk):
         self.lista_preguntas: list[Pregunta] = []
         self.datos: list[str, int] = datos
         self.main_frame = CTkFrame(self)
-        self.geometry("640x800")
+        self.geometry("640x760")
         self.resizable(width=False, height=False)
+        self.title("Proyecto Final")
 
     def add_pregunta(self, pregunta: Pregunta, coordX: int, coordY: int):
         pregunta.add(coordX, coordY)
