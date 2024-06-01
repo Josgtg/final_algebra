@@ -1,7 +1,7 @@
 import db_connection as db
 import vector
 from classes import Comida
-import ventana
+from ventana import *
 
 def elige_num(lo: int, hi: int, message: str) -> int:
     while True:
@@ -24,12 +24,34 @@ def ordena_cercanos(objetivo: Comida, lista_comidas: list[Comida]) -> list[Comid
     return [i for i in sorted(lista_comidas, key=lambda c: vector.distancia(objetivo.vector, c.vector))]
 
 
+def crearVentana() -> Ventana:
+    app = Ventana()
+
+    title = CTkLabel(app, font=(FUENTE, 30, "bold"), text="Buscador de comida con vectores")
+    title.place(x=20, y=20)
+
+    lista_labels = [
+        "¿Qué importancia le das al valor nutricional?",
+        "¿Qué tanto te importa el sabor?",
+        "¿Cuánto te importa la textura en la comida?",
+        "¿En qué nivel es importante la presentación para ti?",
+        "¿Qué tanto te importa el tiempo de preparación?"
+    ]
+
+    for i, label in enumerate(lista_labels):
+        Pregunta(app, label).add(20, 100 + 42*i)
+
+    return app
+
+
 def main():
     db.create_table()
 
     datos = db.get_datos()
 
-    ventana.mostrarUI()
+    app = crearVentana()
+
+    app.mostrar()
     
     db.close()
 
