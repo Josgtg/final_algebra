@@ -1,6 +1,13 @@
 import sqlite3
 from classes import Comida
+import os
 import table
+
+if not os.path.exists("db/"):
+    os.makedirs("db")
+
+if not os.path.exists("db/algebra.db"):
+    open("db/algebra.db", "w").close()
 
 conn = sqlite3.connect("db/algebra.db")
 cur = conn.cursor()
