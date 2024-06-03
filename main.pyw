@@ -12,7 +12,7 @@ def crearVentana(datos: list[str, int]) -> Ventana:
         "¿Qué tanto te importa el sabor?",
         "¿Cuánto te importa la textura en la comida?",
         "¿En qué nivel es importante la presentación para ti?",
-        "¿Qué tanto te importa el tiempo de preparación?"
+        "¿Quieres dedicarle tiempo a la preparación?"
     ]
 
     for i, label in enumerate(lista_labels):
